@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{%block maio%}
+{% if form %}
+    <form action="" class="accounts" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">{{button_content}}</button>
+        {% if button_content == 'Войти' %}
+            <p id="vost">Забыли пароль? <a href="{% url 'password_reset' %}">Восстановить</a></p>
+        {% endif %}
+    </form>
+{%elif login_url%}
+<h1>Вы вышли из аккаунта</h1>
+<div class="center">
+    <a href="{% url 'login' %}" id="login">{{login_url}}</a>
+</div>
+{%else%}
+
+{%endif%}
+{%endblock%}

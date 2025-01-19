@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{%block maio%}
+<h1>{{title}}</h1>
+{% if user.allowed_to_add == True %}
+    <form action="" enctype="multipart/form-data" class="accounts" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        {% if title == "Добавление бита" %}
+        <p>Не нашли нужного исполнителя? Заполните <a href="{% url 'add_artist' %}">форму для добавления артиста</a> на сервер</p>
+        {% endif %}
+        <button type="submit">{{button_content}}</button>
+    </form>
+{% else %}
+<div class="Warning">
+    <h2>Ошибка</h2>
+    <h1>Вам запрещено добавлять что-либо на этот сайт в связи с нарушением правил.</h1>
+</div>
+{% endif %}
+{%endblock%}

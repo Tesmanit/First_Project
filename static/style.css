@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+*{margin: 0;
+padding: 0;
+font-family: 'Roboto', sans-serif;
+}
+body{
+    background: rgb(31,12,66);
+    background: radial-gradient(circle, rgba(31,12,66,1) 0%, rgba(28,11,60,1) 80%, rgba(17,7,36,1) 100%);
+}
+
+nav{
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-top: 3px solid rgb(0, 0, 0);
+    align-items: center;
+    justify-content: start;
+    padding-left:calc(5% - 4px)
+}
+nav img{
+    border-radius: 50%;
+    border: 2px solid rgb(169, 169, 169);
+    width: 100px;
+}
+nav .artist_list, .account_list{
+    flex-wrap:wrap;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 100px;
+}
+nav .artist_list>li, .account_list>li{list-style: none;
+    margin: 5px 0;
+}
+
+nav .artist_list>li>a, .account_list>li>form>button , .account_list>li>a{
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    text-decoration: none;
+    color: rgb(211, 211, 211);
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid rgb(211, 211, 211);
+}
+
+nav .artist_list>li>a:hover, .account_list>li>form>button:hover, .account_list>li>a:hover{
+    border-color: rgb(255,0,163);
+}
+.account_list>li>form>button{
+    background-color: black;
+    cursor:pointer;
+    font-size: 15px;
+}
+#add_beat{
+    width:120px
+}
+
+h1{
+    padding-top: 50px;
+    font-size: 40px;
+    text-align: center;
+color: rgb(210, 210, 210);
+}
+.stran{
+    background-image: url(images/OIG.png);
+    background-size: cover;
+}
+.inner{
+    background: rgb(217,0,201);
+ background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(28,28,28,0.2862394957983193) 67%, rgba(0,0,0,0.6783963585434174) 100%);
+}
+.beat{
+    color: rgb(210, 210, 210);
+    width: 20%;
+    padding: 2%;
+    margin: 3%;
+    background-color: rgba(0, 0, 0, 0.505);
+    border: black 3px solid;
+}
+.beat img{
+    object-fit:cover;
+    border-radius:50px ;
+    width: 50px;
+    height: 50px;
+    border: black 3px solid;
+}
+.beat a{
+    color: rgb(255, 0, 162);
+    text-decoration: none;
+}
+.beat audio{
+    width:100%;
+    border: 2px solid black;
+    border-radius: 50px;
+    margin: 5px 0;
+}
+.beats{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+footer{
+    border-top: 2px solid black;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+.artists{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.artists a{
+    width: 26%;
+    text-decoration: none;
+    padding: 30px;
+}
+.artist{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.505);
+    border: 3px black solid;
+}
+.artist h2{
+    color: white;
+}
+.artist img{
+    width: 100%;
+    height: 300px;
+    object-fit:cover;
+    padding-bottom: 20px;
+}
+.pagin{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.pagin>li{
+    list-style: none;
+    margin: 0 2%;
+}
+.pagin>li>a{
+    display: flex;
+    color: rgb(255, 0, 162);
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.505);
+}
+.pagin>li:hover{
+    transform: scale(1.1);
+}
+.disabled{
+    pointer-events: none;
+    cursor: default;
+    transform: scale(0.8)
+}
+
+.accounts{
+    border: 2px black solid;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 30px;
+    width: 30%;
+    margin-left: 35%;
+    background-color: rgba(0, 0, 0, 0.505);
+}
+.accounts>p{
+    margin-top: 5px;
+    margin-bottom: 20px
+}
+.accounts>p>input{
+    width:100%;
+    height:23px;
+    font-size:18px;
+    border-radius:5px;
+    border: 2px solid black;
+}
+.accounts>button{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border:2px solid black;
+    margin-left: calc(50% - 75px);
+    transition: 0.5s;
+    background-color:#e8eeff;
+}
+
+.accounts>button:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+    background-color: rgb(255, 0, 162);
+    color:white;
+}
+
+.center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}s
+
+#login{
+    margin: 50px 0;
+    color:white;
+    border: 2px solid white;
+    border-radius:5px;
+    padding:10px;
+    text-decoration:none;
+}
+
+#vost{
+    margin-top:20px;
+}
+#vost>a{
+    color: rgb(255, 0, 162);
+}
+.search_beats{
+    display: flex;
+    align-items: center;
+}
+.search_beats>input{
+    padding: 5px;
+    height: 35px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 0;
+    outline: none;
+    width: 200px;
+}
+.search_beats>button{
+    position: relative;
+    border: 0;
+    width: 60px;
+    height: 35px;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgba(255, 0, 162, 0.616);
+    cursor: pointer;
+}
+.search_beats>button:hover{
+   color: white;
+}
+.accounts>p>a{
+    text-decoration: none;
+    color: rgb(255, 0, 162);
+}
+.Warning{
+    margin-top: 40px;
+    padding:20px;
+    background-color: rgba(0, 0, 0, 0.505);
+    width: 60%;
+    margin-left: 20%;
+    height:300px;
+    font-size: 50px;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.Warning>h1, .Warning>h2{
+    color: white;
+}
+
+#login{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.505);
+    margin: 50px;
+    text-decoration: none;
+    color: rgb(255, 0, 162);
+}

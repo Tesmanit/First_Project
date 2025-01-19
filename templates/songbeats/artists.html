@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{%block maio%}
+<h1>{{title}}</h1>
+<div class="artists">
+    {%for artist in page_objects%}
+        <a href="{{artist.get_absolute_url}}"><div class="artist">
+            {%if artist.image%}
+                <img src="{{artist.image.url}}" alt="">
+            {%endif%}
+            <h2>{{artist.name}}</h2>
+        </div></a>
+    {%endfor%}
+</div>
+{%endblock%}

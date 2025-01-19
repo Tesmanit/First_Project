@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{%block maio%}
+<h1>{{title}}</h1>
+<div class="beats">
+    {%for beat in page_objects%}
+        <div class="beat">
+            {% if beat.album.cover %}
+                <img src="{{beat.album.cover.url}}"alt="">
+            {%else%}
+                {% with a=beat.author.all|first %}
+                    <img src="{{a.image.url}}" alt="">
+                {% endwith %}
+            {%endif%}
+            <h2>{{beat.name}}</h2>
+            <audio controls crossorigin="anonymous">
+                <source src=" {% if beat.audio %} {{ beat.audio.url }} {% endif %}" type="audio/mpeg">
+            </audio>
+        </div>
+    {%endfor%}
+</div>
+{%endblock%}

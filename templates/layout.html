@@ -1,0 +1,80 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {{ form.media.css }}
+    <style>
+        .accounts>p>input, .accounts>p>select {width: 100%}
+    </style>
+    <link rel="shortcut icon" href="{% static 'images/Безымянный.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'images/Безымянный.png' %}" type="image/x-icon">
+    <title>{{title}}</title>
+</head>
+<body>
+    <nav>
+        <img src="{% static 'images/Безымянный.png' %}" alt="">
+        <ul class="artist_list">
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'artists' %}">Исполнители</a></li>
+            <li><a href="{% url 'genres' %}">Жанры</a></li>
+        </ul>
+        <ul class="account_list">
+          {% if search %}
+          <form role="search" method="get" class="search_beats" action="">
+            <input placeholder="{{search}}" autocomplete="off" type="search" name="beat_search">
+            <button type="submit">Найти</button>
+          </form>
+          {% endif %}
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'add_beat' %}" id="add_beat">Добавить бит</a></li>
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Выйти</button>
+                    </form>
+                </li>
+            {% else %}
+            <li><a href="{% url 'registration' %}">Регистрация</a></li>
+            <li><a href="{% url 'login' %}">Войти</a></li>
+            {% endif %}
+        </ul>
+
+    </nav>
+    <div class="stran">
+        <div class="inner">
+            {%block maio%}{%endblock%}
+            <div class="pagin">
+              {% for p in page_objects.paginator.page_range%}
+                {% if p == page_objects.number %}
+                  <li class="disabled"><a href="?page={{p}}">{{p}}</a></li>
+                {% elif p >= page_objects.number|add:-2 and p <= page_objects.number|add:2 %}
+                  <li><a href="?page={{p}}{% if request.GET.beat_search %}&beat_search={{ request.GET.beat_search }}{% endif %}">{{p}}</a></li>
+                {% endif %}
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+<footer>© Права вряд-ли защищены </footer>
+<script>
+let audioNL = document.querySelectorAll('audio');
+let audio = Array.apply(null, audioNL);
+
+audio.forEach(t => {
+    let index = audio.indexOf(t);
+
+    t.addEventListener('play', () => {
+        audio.forEach(subT => {
+            subT !== audio[index] ?
+                (subT.pause(), subT.currentTime = 0):
+                subT.play()
+        })
+    })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{ form.media.js }}
+</body>
+</html>

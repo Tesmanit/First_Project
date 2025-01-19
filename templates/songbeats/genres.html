@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{%block maio%}
+<h1>{{title}}</h1>
+<div class="beats">
+    {%for genre in page_objects%}
+        <div class="beat">
+            <a href="{{genre.get_absolute_url}}">
+                <h2>{{genre.genre_name}}</h2>
+                <p>{{genre.description|truncatechars:100}}</p>
+            </a>
+        </div>
+    {%endfor%}
+</div>
+{%endblock%}

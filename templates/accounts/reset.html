@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{%block maio%}
+{% if form %}
+    <form action="" class="accounts" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Изменить пароль</button>
+    </form>
+{%endif%}
+{%endblock%}
